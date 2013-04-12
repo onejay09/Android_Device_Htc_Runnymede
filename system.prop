@@ -1,71 +1,70 @@
-#
 # system.prop for runnymede
 #
-
 ro.sf.lcd_density=240
-debug.fb.rgb565 = 0
-debug.enabletr = true
-debug.qctwa.preservebuf = 1
-debug.hwc.skipcomposition = 0
-debug.egl.profiler = 0
-
-# Ril Prop
-ro.ril.def.agps.mode = 2
-ro.ril.disable.power.collapse = 1
-ro.ril.enable.dtm = 0
-ro.ril.gprsclass = 12
-ro.ril.hsdpa.category = 8
-ro.ril.hsupa.category = 6
-ro.ril.hsxpa = 2
-ro.telephony.ril.v3=signalstrength,datacallapn
-rild.libpath=/system/lib/libhtc_ril.so
-rilswitch.vendorlibpath=/system/lib/libhtc_ril.so
-ro.gsm.2nd_data_retry_config = max_retries=3, 2000, 2000, 2000
+#
+# RIL_DATA_NETWORK
 ro.use_data_netmgrd=true
 persist.data_netmgrd_nint=8
-ro.telephony.default_network=0
-
-#
-# system props for the data modules
-#
-#
-
+ro.ril.gprsclass = 12
+ro.ril.hsdpa.category = 10
+ro.ril.hsupa.category = 6
+ro.ril.hsxpa=3
+ro.ril.disable.power.collapse = 1
+ro.ril.enable.3g.prefix=1
+rild.libpath=/system/lib/libhtc_ril.so
+rilswitch.vendorlibpath=/system/lib/libhtc_ril.so
+ro.telephony.ril.v3=signalstrength,datacallapn
+#WIFI
 wifi.interface=wlan0
-wifi.supplicant_scan_interval=150
-
+wifi.softap.interface=wlan0
+ro.mot.eri.losalert.delay=900
+wifi.supplicant_scan_interval=120
+#DISPLAY
+ro.media.enc.jpeg.quality=100
+ro.max.fling_velocity=12000
+ro.min.fling_velocity=8000
+windowsmgr.max_events_per_sec=90
+debug.mdpcomp.maxlayer=0
+debug.composition.type=c2d
+persist.sys.composition.type=c2d
+persist.sys.ui.hw=1
+debug.egl.profiler = 1
+debug.fb.rgb565 = 1
+debug.hwc.skipcomposition = 0
+debug.enabletr = true
+debug.qc.hardware=true
+debug.qctwa.preservebuf = 1
+com.qc.hardware=true
+debug.qctwa.statusbar=1
+debug.qc.hardware=true
+debug.overlayui.enable=1
+dev.pm.dyn_samplingrate=1
+ro.fb.mode=1
+#EXTRA
+persist.sys.purgeable_assets=1
+ro.config.nocheckin=1
+# Video Acceleration
+debug.performance.tuning=1
+ro.config.hw_quickpoweron=true
+persist.sys.shutdown.mode = hibernate
+#AUDIO
+postprocess.iso_midband=400
+postprocess.denoise_level=5
+#DALVIK
+ro.kernel.android.checkjni=1
+ro.kernel.checkjni=1
+dalvik.vm.dexopt-data-only=1
+dalvik.vm.execution-mode=int:jit
+dalvik.vm.checkjni=false
+dalvik.vm.stack-trace-file=/data/anr/traces.txt
+#MISC-LOGGING-MOUNTING
 # The OpenGL ES API level that is natively supported by this device.
 # This is a 16.16 fixed point number
 ro.opengles.version = 131072
-
-# This is a high density device with more memory, so larger vm heaps for it.
-# For ICS project, default 32m/48m
-dalvik.vm.heapsize=128m
-dalvik.vm.heapgrowthlimit=48m
-dalvik.vm.dexopt-data-only=1
-
-# Properties of Scalado Denoise param.
-postprocess.iso_midband = 400
-postprocess.denoise_level = 5
-
-# For emmc phone storage
+profiler.anr_dump_native_uid = 9999
+ro.htc.htcmode.data.path = /dev/ttyHSUSB3
+persist.sys.usb.config=mass_storage,adb
 ro.phone_fat = 1
 # For ext4 file system
 ro.ext4fs = 1
-
-# For QC perf binary hooks
-# src:vendor/qcom/proprietary/android-perf/release/lib/<CPU arch>/libqc-opt.so
-ro.vendor.extension_library=/system/lib/libqc-opt.so
-
-# For autobot car pc
-ro.htc.htcmode.data.path = /dev/ttyHSUSB3
-
-# USB Mounting
-persist.sys.usb.config=mass_storage,adb
-
-# Other things
-ro.allow.mock.location=0
-persist.sys.strictmode.visual=0
-persist.sys.strictmode.disable=1
-ro.secure=0
-
-ro.debuggable=1
+#
