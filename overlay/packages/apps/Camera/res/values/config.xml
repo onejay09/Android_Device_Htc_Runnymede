@@ -22,4 +22,6 @@
     <bool name="wantsFocusModes">true</bool>
     <!-- HTC Camcorder Mode -->
     <bool name="needsHTCCamMode">true</bool>
+    <!-- Disable software HDR on non-hw HDR devices -->
+    <bool name="disableSoftwareHDR">false</bool>
 </resources>
