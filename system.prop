@@ -95,11 +95,18 @@ wifi.supplicant_scan_interval=150
 # This is a 16.16 fixed point number
 ro.opengles.version = 131072
 
-# This is a high density device with more memory, so larger vm heaps for it.
-# For ICS project, default 32m/48m
-dalvik.vm.heapsize=128m
+dalvik.vm.heaptargetutilization=0.75
+dalvik.vm.heapminfree=512k
+dalvik.vm.heapmaxfree=2m
+dalvik.vm.lockprof.threshold=500
+dalvik.vm.heapstartsize=5m
 dalvik.vm.heapgrowthlimit=48m
-dalvik.vm.dexopt-data-only=1
+dalvik.vm.heapsize=128m
+dalvik.gc.type=precise
+dalvik.vm.verify_bytecode=false
+dalvik.vm.jniopts=forcecopy
+dalvik.vm.dexopt-flags=m=v,o=y
+dalvik.vm.execution-mode=int:jit
 
 # Properties of Scalado Denoise param.
 postprocess.iso_midband = 400
