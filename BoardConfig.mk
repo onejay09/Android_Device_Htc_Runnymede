@@ -31,21 +31,12 @@ USE_CAMERA_STUB := true
 # inherit from the proprietary version
 -include vendor/htc/runnymede/BoardConfigVendor.mk
 
-DEVICE_PACKAGE_OVERLAYS += device/htc/runnymede/overlay
-
 # Compiler Optimization
 ARCH_ARM_HIGH_OPTIMIZATION := true
 TARGET_BOOTLOADER_BOARD_NAME := runnymede
 BOARD_KERNEL_BASE := 0x14400000
 BOARD_KERNEL_PAGE_SIZE := 4096
 
-TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
-
-# Camera
-BOARD_HAVE_HTC_FFC := true
-BOARD_USE_REVERSE_FFC := true
-BOARD_USES_QCOM_HARDWARE := true
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
 # GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := runnymede
 BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50000
@@ -66,6 +57,7 @@ WIFI_DRIVER_MODULE_NAME := bcmdhd
 WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/bcmdhd.ko"
 BOARD_LEGACY_NL80211_STA_EVENTS := true
 
+#FileSystem
 # cat /proc/emmc
 #dev:        size     erasesize name
 #mmcblk0p28: 019ffa00 00000200 "misc"
@@ -86,28 +78,32 @@ BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4328521216
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 4328521216
 BOARD_BOOTIMAGE_PARTITION_SIZE := 4194304
 BOARD_FLASH_BLOCK_SIZE := 4096
-TARGET_PROVIDES_LIBLIGHTS := true
-
-BUILD_KERNEL := false
-TARGET_PREBUILT_KERNEL := device/htc/runnymede/prebuilt/kernel/kernel
-#TARGET_KERNEL_SOURCE := kernel/htc/msm7x30
-#TARGET_KERNEL_CONFIG := evervolv_runnymede_defconfig
-#KERNEL_TOOLCHAIN_PREFIX:=$(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-linaro-4.7/bin/arm-eabi-
-
-
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_SDCARD_DEVICE_PRIMARY := /dev/block/mmcblk0p34
 BOARD_SDCARD_DEVICE_SECONDARY := /dev/block/mmcblk0p33
 BOARD_USES_MMCUTILS := false
 BOARD_HAS_NO_MISC_PARTITION := false
-
-BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
-
-# For sdard
+# TELLS VOLD HOW MANY PARTITIONS WE HAVE ON EMMC
 BOARD_VOLD_MAX_PARTITIONS := 34
+BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
+#end FileSystem
 
+#misc
+TARGET_PROVIDES_LIBLIGHT := true
+TARGET_PROVIDES_INIT_RC := true
+TARGET_PROVIDES_INIT := true
+BUILD_KERNEL := false
+TARGET_PREBUILT_KERNEL := device/htc/runnymede/prebuilt/kernel/kernel
+#TARGET_KERNEL_SOURCE := kernel/htc/msm7x30
+#TARGET_KERNEL_CONFIG := evervolv_runnymede_defconfig
+#KERNEL_TOOLCHAIN_PREFIX:=$(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/arm/arm-linux-linaro-4.7/bin/arm-eabi-
+#end misc
+
+#Device Specific Overlays
+DEVICE_PACKAGE_OVERLAYS += device/htc/runnymede/overlay
+TARGET_RELEASETOOLS_EXTENSIONS := device/htc/common
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/runnymede/bluetooth
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun0/file
 TARGET_BOOTANIMATION_USE_RGB565 := true
-
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/htc/runnymede/bluetooth
+#end Device Specific Overlays
