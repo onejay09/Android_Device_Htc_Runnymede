@@ -107,6 +107,7 @@ dalvik.vm.verify_bytecode=false
 dalvik.vm.jniopts=forcecopy
 dalvik.vm.dexopt-flags=m=v,o=y
 dalvik.vm.execution-mode=int:jit
+dalvik.vm.dexopt-data-only=1
 
 # Properties of Scalado Denoise param.
 postprocess.iso_midband = 400
