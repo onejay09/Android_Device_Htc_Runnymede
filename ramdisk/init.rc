@@ -1,6 +1,5 @@
 import /init.usb.rc
 import /init.runnymede.rc
-import /init.trace.rc
 
 on early-init
     # Set init and its forked children's oom_adj.

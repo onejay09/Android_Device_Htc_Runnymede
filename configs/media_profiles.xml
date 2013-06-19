@@ -351,6 +351,8 @@
         minSampleRate="8000" maxSampleRate="8000"
         minChannels="1" maxChannels="1" />
 
+    <AudioDecoderCap name="wma" enabled="true"/>
+
     <!--
         FIXME:
         We do not check decoder capabilities at present
@@ -359,8 +361,11 @@
         not perform any checks at all.
     -->
     <VideoDecoderCap name="wmv" enabled="false"/>
-    <AudioDecoderCap name="wma" enabled="false"/>
 
+
+    <VideoEditorCap  maxInputFrameWidth="320"
+        maxInputFrameHeight="240" maxOutputFrameWidth="320"
+        maxOutputFrameHeight="240" maxPrefetchYUVFrames="10" />
     <!--
         The VideoEditor Export codec profile and level values
         correspond to the values in OMX_Video.h.
@@ -372,7 +377,7 @@
     <!--
       Codec = h.264, Baseline profile, level 4.1
     -->
-    <ExportVideoProfile name="h264" profile= "1" level="1"/>
+    <ExportVideoProfile name="h264" profile= "1" level="512"/>
     <!--
       Codec = h.263, Baseline profile, level 0
     -->
@@ -380,5 +385,5 @@
     <!--
       Codec = mpeg4, Simple profile, level 3
     -->
-    <ExportVideoProfile name="m4v" profile= "1" level="1"/>
+    <ExportVideoProfile name="m4v" profile= "1" level="16"/>
 </MediaSettings>

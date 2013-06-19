@@ -6,20 +6,22 @@
 /dev/tty_sdio_00          0660   system     system
 
 # the genlock client device node is world writable/readable.
-/dev/genlock              0666   root      root
+/dev/genlock              0666   root       root
 
 # for video
+/dev/msm_vidc*            0660   system     audio
 /dev/kgsl-3d0             0666   root       root
 /dev/kgsl-2d0             0666   root       root
 /dev/kgsl-2d1             0666   root       root
 /dev/msm_rotator          0660   system     graphics
+/dev/graphics/*           0660   root       graphics
 
 # Bluetooth
 /dev/ttyHS0               0600   bluetooth  bluetooth
 /dev/ttyGS0               0660   system     system
 /dev/smd4                 0660   system     system
-/dev/smd3                 0660   bluetooth      bluetooth
-/dev/smd2                 0660   bluetooth      bluetooth
+/dev/smd3                 0660   bluetooth  bluetooth
+/dev/smd2                 0660   bluetooth  bluetooth
 
 # Camera
 /dev/pmem_smipool*        0660   system     camera
@@ -28,7 +30,7 @@
 /dev/msm_vidc_enc         0660   system     audio
 /dev/msm_vidc_reg         0660   system     audio
 /dev/gemini*	          0660   system     audio
-/dev/video*	              0660   system     camera
+/dev/video*	          0660   system     camera
 /dev/msm_camera/*         0660   system     camera
 
 # for audio
@@ -88,12 +90,7 @@
 /dev/qemu_trace           0666   system     system
 
 # regular apps need to be able to open ion
-/dev/ion                  0664   system     system
-
-# permissions for video
-/dev/msm_vidc_reg         0660  system       audio
-/dev/msm_vidc_dec         0660  system       audio
-/dev/msm_vidc_enc         0660  system       audio
+/dev/ion                  0664  system      system
 
 # permissions for audio
 /dev/msm_amrnb            0660  system       audio

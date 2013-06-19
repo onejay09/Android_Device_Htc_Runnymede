@@ -43,6 +43,7 @@ PRODUCT_COPY_FILES += \
     device/htc/runnymede/ramdisk/ueventd.runnymede.rc:root/ueventd.runnymede.rc
 # Media Profiles and Configs
 PRODUCT_COPY_FILES += \
+    device/htc/runnymede/configs/hostapd.conf:system/etc/firmware/hostapd.conf \
     device/htc/runnymede/configs/media_profiles.xml:system/etc/media_profiles.xml \
     device/htc/runnymede/configs/audio_policy.conf:system/etc/audio_policy.conf \
     device/htc/runnymede/configs/media_codecs.xml:system/etc/media_codecs.xml \
@@ -122,6 +123,7 @@ PRODUCT_COPY_FILES += \
     device/htc/runnymede/idc/qwerty.idc:system/usr/idc/qwerty.idc \
     device/htc/runnymede/idc/qwerty2.idc:system/usr/idc/qwerty2.idc
 
+
 # Kernel
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := device/htc/runnymede/prebuilt/kernel/kernel
@@ -144,7 +146,8 @@ PRODUCT_PACKAGES += \
    make_ext4fs \
    FileManager \
    e2fsck \
-   setup_fs
+   setup_fs \
+   Torch
 
 # Build extra CyanogenMod packages
 PRODUCT_PACKAGES += \
