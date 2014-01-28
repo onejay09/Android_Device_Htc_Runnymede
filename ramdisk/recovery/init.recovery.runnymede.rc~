@@ -1,0 +1,7 @@
+on fs
+   #mount all the things
+   mount_all /fstab.runnymede
+
+on emmc-fs
+   #mount all the things
+   mount_all /fstab.runnymede

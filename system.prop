@@ -1,0 +1,98 @@
+# system.prop for runnymede
+#
+# important
+ro.sf.lcd_density=240
+ro.allow.mock.location=0
+persist.sys.strictmode.visual=0
+persist.sys.strictmode.disable=1
+ro.secure=0
+pm.sleep_mode=1
+ro.debuggable=1
+debug.qctwa.statusbar=1
+com.qc.hardware=true
+debug.qctwa.preservebuf=1
+debug.enabletr=true
+persist.sys.use_16bpp_alpha=1
+persist.sys.use_dithering=0
+video.accelerate.hw=1
+htc.audio.beats.state=0
+ro.max.fling_velocity=18000
+ro.min.fling_velocity=1000
+
+#telephony
+ro.telephony.call_ring.delay=0
+ro.telephony.default_network=0
+
+# Radio Settings
+ro.use_data_netmgrd=true
+persist.data_netmgrd_nint=8
+ro.ril.gprsclass = 12
+ro.ril.hsdpa.category=8
+ro.ril.hsupa.category=6
+ro.ril.hsxpa=2
+ro.ril.disable.power.collapse=0
+ro.ril.enable.3g.prefix=1
+rild.libpath=/system/lib/libhtc_ril.so
+ rild.libargs=-d /dev/smd0
+rilswitch.vendorlibpath=/system/lib/libhtc_ril.so
+ro.ril.enable.sdr=1
+ro.ril.fast.dormancy.rule=1
+ro.ril.ecc.HTC-ELL=92,93,94
+ro.ril.ecc.HTC-WWE=999
+ro.ril.enable.a52.HTC-ITA=0
+ro.ril.enable.a53.HTC-ITA=1
+ro.ril.enable.a52=0
+ro.ril.enable.a53=1
+ro.ril.oem.nosim.ecclist=911,112,999,08,118,120,12 2,110,119,995
+ro.ril.disable.fd.plmn.prefix=23402,23410,23411,23420
+ro.ril.enable.sdr=1
+ro.ril.update.vivo.acoustic = 1
+ro.ril.enable.dtm=0
+ro.ril.htcmaskw1.bitmask=4294967295
+ro.ril.htcmaskw1=14449
+ro.ril.hep=1
+ro.ril.def.agps.mode=2
+ro.ril.fast.dormancy.rule=1
+ro.ril.enable.amr.wideband=1
+ro.telephony.ril.v3=signalstrengthgsm,datacallapn
+# Radio Settings end.
+
+# wireless lan
+wifi.interface=wlan0
+wifi.softap.interface=wlan0
+ro.mot.eri.losalert.delay=1000
+wifi.supplicant_scan_interval=180
+# wireless lan end
+
+##low ram device
+ro.config.low_ram=true
+
+#Other Performance Tweaks
+ENFORCE_PROCESS_LIMIT=false
+persist.android.strictmode=0
+persist.service.lgospd.enable=0
+persist.service.pcsync.enable=0
+
+# The OpenGL ES API level that is natively supported by this device.
+# This is a 16.16 fixed point number
+ro.opengles.version=131072
+
+# Properties of Scalado Denoise param.
+postprocess.iso_midband=400
+postprocess.denoise_level=5
+
+# For emmc phone storage
+ro.phone_fat=1
+# For ext4 file system
+ro.ext4fs=1
+
+# For QC perf binary hooks
+# src:vendor/qcom/proprietary/android-perf/release/lib/<CPU arch>/libqc-opt.so
+ro.vendor.extension_library=/system/lib/libqc-opt.so
+
+# USB Mounting
+persist.sys.usb.config=mass_storage,adb
+
+#cm system performance setting defaults
+ro.ksm.default=1
+ro.zram.default=18
